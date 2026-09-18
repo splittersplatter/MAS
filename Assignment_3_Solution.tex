@@ -32,6 +32,7 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\argmin}{\operatorname*{arg\,min}}
 \newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\repoURL}{https://github.com/splittersplatter/MAS}
 \lstset{language=Python,basicstyle=\ttfamily\scriptsize,breaklines=true,frame=single,
   columns=fullflexible,keepspaces=true,showstringspaces=false}
 \hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
@@ -49,6 +50,16 @@ ID: \texttt{EP23BTECH11008} \hfill Submission Date: 18 September 2026\\[1pt]
 \normalsize Course: AI3403-Multi-Agent Systems\\[1pt]
 Instructor: Dr. Venkatraman Renganathan\\
 \noindent\rule{\textwidth}{2.8pt}
+
+\begin{mdframed}[backgroundcolor=blue!4,linecolor=blue!45!black]
+\textbf{Public repository and reproducibility links.}
+The complete public repository is \href{\repoURL}{github.com/splittersplatter/MAS}.
+Direct links: \href{\repoURL/blob/main/Assignment_3_Solution.pdf}{final report},
+\href{\repoURL/blob/main/Assignment_3_Problem_1.py}{Problem 1 code},
+\href{\repoURL/blob/main/assets/p1_DHRUV_formation.gif}{Problem 1 animation},
+\href{\repoURL/blob/main/Assignment_3_Problem_2.py}{Problem 2 code}, and
+\href{\repoURL/blob/main/Assignment_3_Problem_3.py}{Problem 3 code}.
+\end{mdframed}
 
 \begin{problem}{1}
 Fix the number of agents to be $N = 20$. Generate a connected graph using Erdos-Renyi model for
@@ -167,7 +178,8 @@ The code appendix is included because the submission rules require code in the P
 public GitHub repository containing both the code and the animation is:
 \begin{center}
 \fbox{\parbox{0.82\textwidth}{\centering\textbf{Public GitHub repository (Problem 1):}\\
-\url{https://github.com/splittersplatter/MAS}}}
+\href{\repoURL}{github.com/splittersplatter/MAS}\\[2pt]
+\textbf{Direct animation link:} \href{\repoURL/blob/main/assets/p1_DHRUV_formation.gif}{p1\_DHRUV\_formation.gif}}}
 \end{center}
 
 \subsection*{Graph matrices}
@@ -198,13 +210,15 @@ agents $i$ and $j$ communicate, and $a_{ii}=0$.
 \end{bmatrix}.}
 \]
 \[
-{\small D=\operatorname{diag}(2,5,10,5,4,4,4,3,3,5,4,5,6,4,4,4,6,4,5,7),}
+{\scriptstyle D=\operatorname{diag}(2,5,10,5,4,4,4,3,3,5,4,5,6,4,4,4,6,4,5,7),}
 \qquad L=D-A.
 \]
 This explicitly defines every entry of $L$ and is less error-prone to read than repeating the same
 20 by 20 array. The code below also prints the full numerical $L$ matrix.
 
 \subsection*{Problem 1 code}
+The exact source file is also available at
+\href{\repoURL/blob/main/Assignment_3_Problem_1.py}{GitHub: Assignment\_3\_Problem\_1.py}.
 \lstinputlisting{Assignment_3_Problem_1.py}
 \end{solution}
 
@@ -354,6 +368,8 @@ target's motion. The convergence panel records edge disagreement, while the stop
 checks objective change. The graph and sensor locations remain fixed throughout the simulation.
 
 \subsection*{Problem 2 code}
+The exact source file is also available at
+\href{\repoURL/blob/main/Assignment_3_Problem_2.py}{GitHub: Assignment\_3\_Problem\_2.py}.
 \lstinputlisting{Assignment_3_Problem_2.py}
 \end{solution}
 
@@ -496,17 +512,19 @@ case 3 & 6 & $5.33\times10^{-16}$ & $2.54\times10^{-16}$ & 12.415220 & pass & pa
 
 The three displayed binary allocation matrices are
 \[
+\resizebox{\textwidth}{!}{$
 \begin{array}{c@{\qquad}c@{\qquad}c}
 X^{(1)}=\begin{bmatrix}1&0&0&0&0&1&0\\0&0&0&1&0&0&1\\0&1&0&0&1&0&0\\0&0&1&0&0&0&0\end{bmatrix}&
 X^{(2)}=\begin{bmatrix}0&1&0&0&0&1&0\\1&0&0&0&0&0&1\\0&0&1&0&1&0&0\\0&0&0&1&0&0&0\end{bmatrix}&
 X^{(3)}=\begin{bmatrix}0&0&1&1&0&0&0\\1&0&0&0&0&0&1\\0&1&0&0&0&1&0\\0&0&0&0&1&0&0\end{bmatrix}.
 \end{array}
+ $}
 \]
 Each matrix has column sums equal to one and row sums equal to $(2,2,2,1)$.
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[x=0.62cm,y=1.25cm]
+\begin{tikzpicture}[x=0.50cm,y=1.25cm]
 \begin{scope}
 \draw[->] (0,0) -- (11.4,0) node[right] {iteration};
 \draw[->] (0,0) -- (0,1.65) node[above] {primal residual};
@@ -516,7 +534,7 @@ Each matrix has column sums equal to one and row sums equal to $(2,2,2,1)$.
 \draw[green!60!black,thick,dotted] plot coordinates {(1,1.1544)(2,.7171)(3,.2650)(4,.1171)(5,0)(6,0)};
 \node at (5.4,-0.28) {ADMM iteration};
 \end{scope}
-\begin{scope}[xshift=8.1cm]
+\begin{scope}[xshift=6.4cm]
 \draw[->] (0,0) -- (11.4,0) node[right] {iteration};
 \draw[->] (0,0) -- (0,1.65) node[above] {dual residual};
 \foreach \y/\lab in {0/0,0.2/0.2,0.4/0.4,0.6/0.6,0.8/0.8}{\draw (-0.08,\y) -- (0.08,\y) node[left=4pt] {\lab};}
@@ -544,6 +562,8 @@ so the capacity limits can move tasks even when an agent has a low cost for them
 therefore explained by the new costs and capacity limits, not by random behaviour.
 
 \subsection*{Problem 3 code}
+The exact source file is also available at
+\href{\repoURL/blob/main/Assignment_3_Problem_3.py}{GitHub: Assignment\_3\_Problem\_3.py}.
 \lstinputlisting{Assignment_3_Problem_3.py}
 \end{solution}
 
